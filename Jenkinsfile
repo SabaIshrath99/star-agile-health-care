@@ -32,11 +32,12 @@ pipeline {
             }
         }
         stage('Deploy') {
-            steps {
-                // Apply all k8s manifests inside k8s folder
-                sh 'kubectl apply -f k8s/'
-            }
-        }
+    steps {
+        sh 'kubectl apply -f k8s/deployment.yml'
+        sh 'kubectl apply -f k8s/service.yml'
+    }
+}
+
     }
 }
 
